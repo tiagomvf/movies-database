@@ -1,5 +1,5 @@
-import API_KEY from "../key.js";
-import { html, render } from "../node_modules/lit-html/lit-html.js"
+import API_KEY from "../../key.js";
+import { html, render } from "./libs/lit-html.js"
 
 const template = x => html`<h1>${x.title}</h1>`;
 
