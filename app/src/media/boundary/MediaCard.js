@@ -40,7 +40,8 @@ class MediaCard extends HTMLElement {
 
     view(){
         const id = this.dataset.id;
-        fetch(`https://api.themoviedb.org/3/movie/${id}\?api_key\=${API_KEY}`)
+        const media = this.dataset.media_type;
+        fetch(`https://api.themoviedb.org/3/${media}/${id}\?api_key\=${API_KEY}`)
             .then(response => response.json())
             .then(json => render(template(json), this));
     }

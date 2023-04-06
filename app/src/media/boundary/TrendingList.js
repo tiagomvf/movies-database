@@ -11,7 +11,7 @@ const template = (list, _this) => html`
         <input type="radio" @click=${e => _this.setAttribute("data-range", "week")} name="range" id="week" value="week">
         <label for="week">Week</label>
     </div>
-    ${listTemplate(list)}`
+    ${listTemplate("movie", list)}`
 class TrendingList extends HTMLElement {
 
     constructor(){
