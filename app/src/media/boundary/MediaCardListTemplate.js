@@ -1,7 +1,7 @@
 // import { html,render } from "../../libs/lit-html.js"
 import { render, html} from "lit-html";
 import "./MediaCard.js"
-import API_KEY from "../../../../key.js"
+import API_KEY from "../../../key.js"
 
 export const template = (media_type, list) => html`
     <ul style="display: flex; flex-direction: row; overflow-x: scroll">

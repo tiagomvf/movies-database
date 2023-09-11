@@ -1,5 +1,5 @@
 import { render, html} from "lit-html";
-import API_KEY from "../../../../key.js";
+import API_KEY from "../../../key.js";
 
 const template = ({id, title, poster_path, overview, release_date}) => html`
 <div class="image">

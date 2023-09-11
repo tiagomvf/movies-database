@@ -2,7 +2,7 @@
 import { render, html} from "lit-html";
 import "./MediaCard.js"
 import {template as listTemplate} from "./MediaCardListTemplate.js"
-import API_KEY from "../../../../key.js"
+import API_KEY from "../../../key.js"
 
 const template = (list, _this) => html`
     <div style="display: flex; flex-direction: row;align-items: center">
