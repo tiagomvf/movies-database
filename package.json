@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
+    "start": "snowpack dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,9 @@
   },
   "homepage": "https://github.com/tiagomvf/movies-database#readme",
   "dependencies": {
-    "lit-html": "^2.7.0"
+    "lit-html": "^2.8.0"
+  },
+  "devDependencies": {
+    "snowpack": "^3.8.8"
   }
 }

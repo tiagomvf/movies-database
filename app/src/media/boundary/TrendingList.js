@@ -1,4 +1,5 @@
-import { html,render } from "../../libs/lit-html.js"
+// import { html,render } from "../../libs/lit-html.js"
+import { render, html} from "lit-html";
 import "./MediaCard.js"
 import {template as listTemplate} from "./MediaCardListTemplate.js"
 import API_KEY from "../../../../key.js"
