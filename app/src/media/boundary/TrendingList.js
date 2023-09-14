@@ -6,7 +6,7 @@ import API_KEY from "../../../key.js"
 
 const template = (list, _this) => html`
     <div style="display: flex; flex-direction: row;align-items: center">
-        <h2>Tendências</h2>
+        <h1>Tendências</h1>
         <input type="radio" checked @click='${_ => _this.setAttribute("data-range", "day")}' name="range" id="day" value="day">
         <label for="day">Day</label>
         <input type="radio" @click='${_ => _this.setAttribute("data-range", "week")}' name="range" id="week" value="week">

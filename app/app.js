@@ -1,6 +1,7 @@
 import API_KEY from "./key.js"
 // import '@carbon/grid/index.scss'
 import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.35.0/back-to-top.min.js'
+import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.35.0/image.min.js'
 import '@carbon/ibmdotcom-web-components/dist/dotcom-shell.js'
 import '@carbon/ibmdotcom-web-components/dist/ibmdotcom-web-components-dotcom-shell.js'
 // import './src/media/boundary/MediaCard.js'

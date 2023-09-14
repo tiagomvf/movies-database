@@ -5,7 +5,7 @@ import API_KEY from "../../../key.js"
 
 const template = (type, list, _this) => html`
     <div style="display: flex; flex-direction: row;align-items: center">
-        <h2>grátis para assistir</h2>
+        <h1>grátis para assistir</h1>
         <div style="text-transform: capitalize">
         <input type="radio" checked @click=${e => _this.setAttribute("data-media-type", e.target.value)} name="free-to-watch-media-type" id="movie" value="movie">
         <label for="movie">filmes</label>
