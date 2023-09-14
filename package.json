@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/tiagomvf/movies-database#readme",
   "dependencies": {
+    "@carbon/ibmdotcom-web-components": "^1.35.0",
+    "@snowpack/plugin-sass": "^1.4.0",
     "lit-html": "^2.8.0"
   },
   "devDependencies": {

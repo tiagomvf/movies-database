@@ -1,5 +1,5 @@
 import { render, html} from "lit-html";
-import "./MediaCard.js"
+// import "./MediaCard.js"
 import {template as listTemplate} from "./MediaCardListTemplate.js"
 import API_KEY from "../../../key.js"
 
