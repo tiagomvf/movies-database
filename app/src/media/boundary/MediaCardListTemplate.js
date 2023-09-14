@@ -8,18 +8,16 @@ export const template = (media_type, list) => html`
     <dds-carrousel style="display:flex">
     ${list.map(({id, title, poster_path, overview, release_date}) => html`
         <dds-card href="#" style="width: fit-content;">
-        <dds-card-eyebrow>${title}</dds-card-eyebrow>
-        <dds-card-heading>
+        <!-- <dds-card-eyebrow>${title}</dds-card-eyebrow> -->
+        <!-- <dds-card-heading> -->
         <a href="/movie/${id}" title="${title}">
-                    <img loading="lazy" src="https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}" srcset="https://image.tmdb.org/t/p/w220_and_h330_face${poster_path} 1x, https://image.tmdb.org/t/p/w440_and_h660_face${poster_path} 2x" alt="">
+                    <img style="border-radius: 0.15rem" loading="lazy" src="https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}" srcset="https://image.tmdb.org/t/p/w220_and_h330_face${poster_path} 1x, https://image.tmdb.org/t/p/w440_and_h660_face${poster_path} 2x" alt="">
             </a>
-        </dds-card-heading>
+        <!-- </dds-card-heading> -->
         <dds-card-footer slot="footer">
-            <div>
             ${title}
 
-</div>
-            <svg
+            <!-- <svg
             slot="icon"
             focusable="false"
             preserveAspectRatio="xMidYMid meet"
@@ -31,7 +29,7 @@ export const template = (media_type, list) => html`
             viewBox="0 0 20 20"
             >
             <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-            </svg>
+            </svg> -->
         </dds-card-footer>
         </dds-card>
             
