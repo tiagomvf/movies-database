@@ -19,11 +19,14 @@
   },
   "homepage": "https://github.com/tiagomvf/movies-database#readme",
   "dependencies": {
-    "@carbon/ibmdotcom-web-components": "^1.35.0",
-    "@snowpack/plugin-sass": "^1.4.0",
+    "@carbon/web-components": "^2.0.1",
+    "carbon-components": "^10.58.10",
     "lit-html": "^2.8.0"
   },
   "devDependencies": {
-    "snowpack": "^3.2.2"
+    "@snowpack/plugin-sass": "^1.4.0",
+    "rollup": "^3.29.1",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "snowpack": "^3.8.8"
   }
 }
