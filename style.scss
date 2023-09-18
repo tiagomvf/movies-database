@@ -1,6 +1,3 @@
-@use "@carbon/styles";
-$main-color: #000;
-
-html {
-  font-size: inherit;
-}
+@use '@carbon/styles' with (
+  $font-path: './node_modules/@ibm/plex'
+);

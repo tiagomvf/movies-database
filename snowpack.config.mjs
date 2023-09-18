@@ -9,6 +9,7 @@ export default {
   plugins: [
   ['@snowpack/plugin-sass',
    {
+    loadPath: 'node_modules/'
    }]
     /* ... */
   ],
