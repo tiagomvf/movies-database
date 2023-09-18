@@ -4,6 +4,8 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
   mount: {
+    src: '/',
+    'node_modules/@ibm/plex/IBM-Plex-Sans/fonts/split': {url:'/@ibm/plex/IBM-Plex-Sans/fonts/split', static:true}
     /* ... */
   },
   plugins: [
