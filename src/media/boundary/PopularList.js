@@ -7,12 +7,12 @@ import API_KEY from "../../../key.js"
 const template = (type, list, _this) => html`
     <div style="display: flex; flex-direction: row;align-items: center">
         <h1>Mais Populares</h1>
-        <div style="text-transform: capitalize">
-        <input type="radio" checked @click=${e => _this.setAttribute("data-media-type", e.target.value)} name="popular-media-type" id="movie" value="movie">
-        <label for="movie">filmes</label>
-        <input type="radio" @click=${e => _this.setAttribute("data-media-type", e.target.value)} name="popular-media-type" id="tv" value="tv">
-        <label for="tv">tv</label>
-        </div>
+        <cds-content-switcher style="width: fit-content"
+          value="movie"
+          @cds-content-switcher-selected="${ ({detail: {item}}) => _this.setAttribute("data-media-type", item.value)}">
+            <cds-content-switcher-item value="movie">Filmes</cds-content-switcher-item>
+            <cds-content-switcher-item value="tv">TV</cds-content-switcher-item>
+        </cds-content-switcher>
     </div>
     ${listTemplate(type, list)}`
 class PopularList extends HTMLElement {

@@ -7,10 +7,12 @@ import API_KEY from "../../../key.js"
 const template = (list, _this) => html`
     <div style="display: flex; flex-direction: row;align-items: center">
         <h1>Tendências</h1>
-        <input type="radio" checked @click='${_ => _this.setAttribute("data-range", "day")}' name="range" id="day" value="day">
-        <label for="day">Day</label>
-        <input type="radio" @click='${_ => _this.setAttribute("data-range", "week")}' name="range" id="week" value="week">
-        <label for="week">Week</label>
+        <cds-content-switcher style="width: fit-content"
+          value="day"
+          @cds-content-switcher-selected="${ ({detail: {item}}) => _this.setAttribute("data-range", item.value)}">
+            <cds-content-switcher-item value="day">Dia</cds-content-switcher-item>
+            <cds-content-switcher-item value="week">Semana</cds-content-switcher-item>
+        </cds-content-switcher>
     </div>
     <div>
     ${listTemplate("movie", list)}
