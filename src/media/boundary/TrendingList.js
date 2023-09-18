@@ -2,7 +2,7 @@
 import { render, html} from "lit-html";
 // import "./MediaCard.js"
 import {template as listTemplate} from "./MediaCardListTemplate.js"
-import API_KEY from "../../../key.js"
+import API_KEY from "../../key.js"
 
 const template = (list, _this) => html`
     <div style="display: flex; flex-direction: row;align-items: center">
@@ -10,8 +10,8 @@ const template = (list, _this) => html`
         <cds-content-switcher style="width: fit-content"
           value="day"
           @cds-content-switcher-selected="${ ({detail: {item}}) => _this.setAttribute("data-range", item.value)}">
-            <cds-content-switcher-item value="day">Dia</cds-content-switcher-item>
-            <cds-content-switcher-item value="week">Semana</cds-content-switcher-item>
+            <cds-content-switcher-item value="day">Hoje</cds-content-switcher-item>
+            <cds-content-switcher-item value="week">Nesta Semana</cds-content-switcher-item>
         </cds-content-switcher>
     </div>
     <div>
