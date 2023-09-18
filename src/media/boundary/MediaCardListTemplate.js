@@ -8,7 +8,11 @@ export const template = (media_type, list) => html`
 
 <div style="display: flex">
     ${
-        list.map(({id, title, poster_path, overview, release_date}) => html`
+        list
+        .map(({id, title, name, poster_path, overview, release_date}) => 
+          ({id, title: title? title : name, poster_path, overview, release_date})
+        )
+        .map(({id, title, poster_path, overview, release_date}) => html`
     <cds-tile style="min-width: 150px; max-width: 162px;">
     <div class="image" style="width: 100%; display: flex" >
     <div class="wrapper" style="width: inherit">
