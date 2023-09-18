@@ -1,3 +1,7 @@
 @use '@carbon/styles' with (
   $font-path: '@ibm/plex'
 );
+
+@use "@carbon/type";
+@include type.default-type();
+@include type.type-classes();

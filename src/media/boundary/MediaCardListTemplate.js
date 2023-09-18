@@ -33,9 +33,10 @@ export const template = (media_type, list) => html`
       </div>
     </div>
 
-    <!-- TODO: fix. do not use h5. use h2 plus style. -->
-    <h5><a href="/movie/${id}" title="${title}" style="text-decoration: none">${title}</a></h5>
-    <p>${release_date}</p>
+    <cds-link href="/movie/${id}" title="${title}">
+    <h2 class="cds--type-heading-compact-02">${title}</h2>
+    </cds-link>
+    <p class="cds--type-caption-02">${release_date}</p>
   </div>
 
   <div class="hover 762430"></div>
