@@ -1,6 +1,5 @@
 // import { html,render } from "../../libs/lit-html.js"
 import { render, html} from "lit-html";
-
 // import "./MediaCard.js"
 
 const image_host = "https://image.tmdb.org";
@@ -9,10 +8,13 @@ export const template = (media_type, list) => html`
 <div style="display: flex">
     ${
         list
-        .map(({id, title, name, poster_path, overview, release_date, first_air_date}) => 
-          ({id, title: title? title : name, poster_path, overview, release_date: release_date? release_date : first_air_date})
-        )
-        .map(({id, title, poster_path, overview, release_date}) => html`
+        .map(({title, name, release_date, first_air_date, ...rest}) => 
+          ({
+            title: title? title: name,
+            release_date: release_date? release_date : first_air_date,
+            ...rest
+          })
+        ).map(({id, title, poster_path, overview, release_date}) => html`
     <cds-tile style="min-width: 150px; max-width: 162px;">
     <div class="image" style="width: 100%; display: flex" >
     <div class="wrapper" style="width: inherit">
