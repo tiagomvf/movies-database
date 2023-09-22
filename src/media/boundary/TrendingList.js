@@ -5,9 +5,9 @@ import {template as listTemplate} from "./MediaCardListTemplate.js"
 import API_KEY from "../../key.js"
 
 const template = (list, _this) => html`
-    <div style="display: flex; flex-direction: row;align-items: center">
-        <h1>Tendências</h1>
-        <cds-content-switcher style="width: fit-content"
+    <div style="display: flex; flex-direction: row;align-items: center; gap: 16px; padding: 20px">
+        <h1 class="cds--type-productive-heading-04">Tendências</h1>
+        <cds-content-switcher style="width: fit-content;"
           value="day"
           @cds-content-switcher-selected="${ ({detail: {item}}) => _this.setAttribute("data-range", item.value)}">
             <cds-content-switcher-item value="day">Hoje</cds-content-switcher-item>

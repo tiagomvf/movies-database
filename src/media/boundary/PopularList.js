@@ -12,8 +12,8 @@ const urls = {
 
 
 const template = (type, list, _this) => html`
-    <div style="display: flex; flex-direction: row;align-items: center">
-        <h1>Mais Populares</h1>
+    <div style="display: flex; flex-direction: row;align-items: center; gap: 16px; padding: 20px">
+        <h1 class="cds--type-productive-heading-04">Mais Populares</h1>
         <cds-content-switcher style="width: fit-content"
           value="movie"
           @cds-content-switcher-selected="${ ({detail: {item}}) => _this.setAttribute("data-media-type", item.value)}">
