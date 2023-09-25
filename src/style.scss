@@ -1,7 +1,14 @@
 @use '@carbon/styles' with (
   $font-path: '@ibm/plex'
 );
-
+@use '@carbon/themes/scss/themes';
+@use '@carbon/themes/scss/theme';
 @use "@carbon/type";
+
+* {
+  @include theme.theme(themes.$g90);
+}
+
 @include type.default-type();
 @include type.type-classes();
+
