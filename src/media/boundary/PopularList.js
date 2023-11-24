@@ -42,10 +42,6 @@ class PopularList extends HTMLElement {
         const type = this.getAttribute("data-media-type");
 
         fetch(`${urls[type]}\?api_key\=${API_KEY}`)
-        //  fetch(`https://api.themoviedb.org/3/${type}/popular\?api_key\=${API_KEY}`)
-        // fetch(
-        //     `https://api.themoviedb.org/3/discover/${type}?include_adult=false&include_video=false&language=en_UR&page=1&sort_by=popularity.desc`,
-        //     {headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMGZmNGMwMjE1Y2MyOTM4NDQ0NzFlNGMzOGRhMGE4NCIsInN1YiI6IjY0Mjg3NDRlMGYzNjU1MDBkMjdhMjQ5YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OVU1QdK3D8Ak73THorxkr85QbntX8j9QjIHA8x7DWCI'}})
             .then(response => response.json())
             .then(json => render(template(type, json.results, this), this));
     }

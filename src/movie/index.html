@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filmes Populares</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/index.js" type="module"></script>
+  <script src="./boundary/MovieList.js" type="module"></script>
+</head>
+<body>
+<tmdb-app-header></tmdb-app-header>
+<nav>
+  <cds-side-nav aria-label="Side navigation">
+    <cds-side-nav-items>
+      <cds-side-nav-menu title="Ordenar" style="overflow: visible">
+        <cds-dropdown title-text="Ordenar resultados por">
+          <cds-dropdown-item value="p2">Popularidade (menor)</cds-dropdown-item>
+          <cds-dropdown-item value="p3">Avaliação (melhor)</cds-dropdown-item>
+          <cds-dropdown-item value="p4">Avaliação (pior)</cds-dropdown-item>
+          <cds-dropdown-item value="p5">Lançamento (novo)</cds-dropdown-item>
+          <cds-dropdown-item value="p6">Lançamento (antigo)</cds-dropdown-item>
+          <cds-dropdown-item value="p7">Título (A-Z)</cds-dropdown-item>
+          <cds-dropdown-item value="p8">Título (Z-A)</cds-dropdown-item>
+        </cds-dropdown>
+        </cds-expandable-tile>
+      </cds-side-nav-menu>
+      <cds-side-nav-menu title="Onde Assistir">
+        <!--      </cds-side-nav-menu-item>-->
+        <cds-side-nav-menu-item href="www.ibm.com">
+          L0 menu item
+        </cds-side-nav-menu-item>
+        <cds-side-nav-menu-item href="www.ibm.com">
+          L0 menu item
+        </cds-side-nav-menu-item>
+      </cds-side-nav-menu>
+      <cds-side-nav-menu title="Filtros">
+        <cds-side-nav-menu-item href="www.ibm.com">
+          L0 menu item
+        </cds-side-nav-menu-item>
+        <cds-side-nav-menu-item href="www.ibm.com">
+          L0 menu item
+        </cds-side-nav-menu-item>
+      </cds-side-nav-menu>
+    </cds-side-nav-items>
+  </cds-side-nav>
+</nav>
+<main style="margin-top: 62px;">
+  <cds-tile>
+    <h1 class="cds--type-productive-heading-04">Filmes Populares</h1>
+  </cds-tile>
+</main>
+</body>
+</html>

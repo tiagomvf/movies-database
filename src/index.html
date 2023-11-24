@@ -5,25 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Database</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./index.js" type="module"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/index.js" type="module"></script>
 </head>
 <body>
-    <cds-header aria-label="Another Movie Database">
-        <cds-header-menu-button button-label-active="Close menu"
-            button-label-inactive="Open menu"></cds-header-menu-button>
-        <cds-header-name href="javascript:void 0" prefix="AMDB">[Another Movie Database]</cds-header-name>
-        <cds-header-nav menu-bar-label="IBM [Platform]">
-            <cds-header-nav-item href="javascript:void 0">Filmes</cds-header-nav-item>
-            <cds-header-nav-item href="javascript:void 0">Séries</cds-header-nav-item>
-            <cds-header-nav-item href="javascript:void 0">Pessoas</cds-header-nav-item>
-            <cds-header-menu menu-label="Mais" trigger-content="Mais">
-                <cds-header-menu-item href="javascript:void 0">Sub-link 1</cds-header-menu-item>
-                <cds-header-menu-item href="javascript:void 0">Sub-link 2</cds-header-menu-item>
-                <cds-header-menu-item href="javascript:void 0">Sub-link 3</cds-header-menu-item>
-            </cds-header-menu>
-        </cds-header-nav>
-    </cds-header>
+    <tmdb-app-header></tmdb-app-header>
     <div style="margin-top: 62px;">
         <tmdb-trending-list></tmdb-trending-list>
         <tmdb-popular-list></tmdb-popular-list>
