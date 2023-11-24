@@ -46,16 +46,7 @@ export const template = (media_type, list) => html`
   </div>
 
   <div class="hover 762430"></div>
-
-    
     </cds-tile> `)}
 </div>
+`
 
-    <!--<ul style="display: flex; flex-direction: row; overflow-x: scroll">
-        ${list.map(element => html`
-            <li style="list-style-type: none; padding: 1rem">
-                <tmdb-media-card data-media_type="${media_type}" data-id="${element.id}"><tmbd-media-card>
-            </li>
-        `)}
-    </ul> -->`
-     
