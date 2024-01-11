@@ -19,7 +19,7 @@ export const template = (media_type, list) => html`
             ...rest
           })
         ).map(({id, title, poster_path, overview, release_date}) => html`
-    <cds-tile style="min-width: fit-content">
+    <cds-tile style="min-width: fit-content; padding: 0 16px 16px 16px">
     
     <div style="width: 150px; min-width: 150; max-with: 322px">
       <a href="/movie/${id}" title="${title}" > 
