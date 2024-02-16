@@ -9,11 +9,15 @@
     <script src="/index.js" type="module"></script>
 </head>
 <body>
+<header>
     <tmdb-app-header></tmdb-app-header>
-    <div style="margin-top: 62px;">
+</header>
+<main style="width: 100%; display: flex; justify-content: center">
+    <div style="margin-top: 62px; max-width: 1300px">
         <tmdb-trending-list></tmdb-trending-list>
         <tmdb-popular-list></tmdb-popular-list>
         <tmdb-free-to-watch-list></tmdb-free-to-watch-list>
     </div>
+</main>
 </body>
 </html>
