@@ -19,7 +19,7 @@ export const template = (media_type, list) => html`
             ...rest
           })
         ).map(({id, title, poster_path, overview, release_date}) => html`
-    <cds-tile style="min-width: fit-content; padding: 0 16px 16px 16px">
+    <cds-layer style="min-width: fit-content; padding: 0 16px 16px 16px">
     
     <div style="width: 150px; min-width: 150px; max-width: 322px">
       <a href="/movie/${id}" title="${title}" > 
@@ -33,7 +33,7 @@ export const template = (media_type, list) => html`
       </cds-link>
       <p class="cds--type-caption-02">${release_date}</p>
     </div>
-    </cds-tile>
+    </cds-layer>
     `)}
 </div>
 `
