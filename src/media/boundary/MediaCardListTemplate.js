@@ -9,7 +9,7 @@ const calcDate = ({release_date, first_air_date}) => {
 const image_host = "https://image.tmdb.org";
 export const template = (media_type, list) => html`
 
-<div style="display: flex; overflow-y: auto;">
+<div style="display: flex; overflow-y: auto; scrollbar-width: thin;">
     ${
         list
         .map(({title, name, release_date, first_air_date, ...rest}) => 
