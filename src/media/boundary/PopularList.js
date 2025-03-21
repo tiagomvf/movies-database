@@ -5,9 +5,9 @@ import {template as listTemplate} from "./MediaCardListTemplate.js"
 import API_KEY from "../../key.js"
 
 const urls = {
-    tv: 'https://api.themoviedb.org/3/tv/popular',
-    movie: 'https://api.themoviedb.org/3/movie/popular',
-    in_theaters: 'https://api.themoviedb.org/3/movie/now_playing'
+    tv: '/api/3/tv/popular',
+    movie: '/api/3/movie/popular',
+    in_theaters: '/api/3/movie/now_playing'
 };
 
 

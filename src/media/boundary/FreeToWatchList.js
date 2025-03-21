@@ -31,7 +31,7 @@ class FreeToWatchList extends HTMLElement {
 
     view(){
         const type = this.getAttribute("data-media-type");
-        const url = `https://api.themoviedb.org/3/discover/${type}\?api_key\=${API_KEY}\&with_watch_monetization_types\=free&sort_by\=popularity.desc\&watch_region\=US\&certification_country=\US`
+        const url = `/api/3/discover/${type}\?api_key\=${API_KEY}\&with_watch_monetization_types\=free&sort_by\=popularity.desc\&watch_region\=US\&certification_country=\US`
         fetch(url)
             .then(response => response.json())
             .then(json => render(template(type, json.results, this), this));
