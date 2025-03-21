@@ -36,7 +36,7 @@ class TrendingList extends HTMLElement {
 
     view(){
         const range = this.getAttribute("data-range");
-        fetch(`https://api.themoviedb.org/3/trending/all/${range}\?api_key\=${API_KEY}`)
+        fetch(`/api/3/trending/all/${range}\?api_key\=${API_KEY}`)
             .then(response => response.json())
             .then(json => ({ results: json.results, component: this}))
             .then(({results, component}) => ({ template: template(results, component), component}))
