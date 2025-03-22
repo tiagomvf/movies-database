@@ -2,7 +2,8 @@ import { render, html} from "lit-html";
 
 const calcDate = ({release_date, first_air_date}) => {
   const date = Date.parse(release_date? release_date : first_air_date);
-  return new Intl.DateTimeFormat("br", { dateStyle: "medium" })
+  const languages = navigator.languages || ['en-US'];
+  return new Intl.DateTimeFormat(languages, { dateStyle: "medium" })
     .format(date);
 }
 
