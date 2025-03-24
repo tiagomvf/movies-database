@@ -14,9 +14,8 @@ const template = (list, _this) => html`
             <cds-content-switcher-item value="week">Nesta Semana</cds-content-switcher-item>
         </cds-content-switcher>
     </div>
-    <div>
     ${listTemplate("movie", list)}
-    </div>`
+    `
 class TrendingList extends HTMLElement {
 
     constructor(){
