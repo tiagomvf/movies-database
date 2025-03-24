@@ -25,7 +25,6 @@ class MovieListItem extends HTMLElement {
     }
 
     view(){
-        debugger
         const data = {
             id: this.dataset.id,
             title: this.dataset.title,
@@ -34,8 +33,6 @@ class MovieListItem extends HTMLElement {
             release_date: this.dataset.release_date,
             image_host: 'https://image.tmdb.org'
         }
-
-        console.log(JSON.stringify(data));
         render(template(data), this);
     }
 
