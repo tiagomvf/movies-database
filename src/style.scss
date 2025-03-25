@@ -1,4 +1,5 @@
-@use '@carbon/styles' with (
+@use '@carbon/styles'
+with (
   $font-path: '@ibm/plex'
 );
 @use '@carbon/themes/scss/themes';
