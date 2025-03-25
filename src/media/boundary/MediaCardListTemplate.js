@@ -1,4 +1,4 @@
-import { render, html} from "lit-html";
+import { html } from "lit-html";
 import "./MovieCard.js"
 
 const calcDate = ({release_date, first_air_date}) => {

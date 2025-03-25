@@ -15,6 +15,7 @@ import { render, html} from "lit-html";
      </div>
      </cds-layer>
 `
+
 class MovieListItem extends HTMLElement {
 
     constructor(){
@@ -22,6 +23,15 @@ class MovieListItem extends HTMLElement {
     }
     connectedCallback(){
         this.view();
+        const observer = new MutationObserver(() => {
+          observer.takeRecords();
+          this.view();
+        });
+        observer.observe(this, {attributes: true,childList: false, subtree: false })
+    }
+
+    disconnectedCallback(){
+        observer.disconnect();
     }
 
     view(){
@@ -36,7 +46,7 @@ class MovieListItem extends HTMLElement {
         render(template(data), this);
     }
 
-    static get observedAttributes(){return ["data-media-type"]}
+    static get observedAttributes(){return ["data-movie"]}
 }
 
 customElements.define("tmdb-movie-list-item", MovieListItem);

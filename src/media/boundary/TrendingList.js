@@ -4,12 +4,11 @@ import { render, html} from "lit-html";
 import {template as listTemplate} from "./MediaCardListTemplate.js"
 import API_KEY from "../../key.js"
 
-const template = (list, _this) => html`
+const template = (list) => html`
     <div style="display: flex; flex-direction: row;align-items: center; gap: 16px; padding: 20px">
         <h1 class="cds--type-productive-heading-04">Tendências</h1>
         <cds-content-switcher style="width: fit-content;"
-          value="day"
-          @cds-content-switcher-selected="${ ({detail: {item}}) => _this.setAttribute("data-range", item.value)}">
+          value="day">
             <cds-content-switcher-item value="day">Hoje</cds-content-switcher-item>
             <cds-content-switcher-item value="week">Nesta Semana</cds-content-switcher-item>
         </cds-content-switcher>
@@ -27,6 +26,9 @@ class TrendingList extends HTMLElement {
 
     connectedCallback(){
         this.view();
+        this.addEventListener('cds-content-switcher-selected', (e) => {
+            this.setAttribute('data-range', e.detail.item.value);
+        });
     }
 
     attributeChangedCallback(name, oldValue, newValue){
@@ -37,9 +39,7 @@ class TrendingList extends HTMLElement {
         const range = this.getAttribute("data-range");
         fetch(`/api/3/trending/all/${range}\?api_key\=${API_KEY}`)
             .then(response => response.json())
-            .then(json => ({ results: json.results, component: this}))
-            .then(({results, component}) => ({ template: template(results, component), component}))
-            .then(({template, component}) => render(template, component));
+            .then(json => render(template(json.results), this))
     }
 
     static get observedAttributes(){return ["data-range"]}
