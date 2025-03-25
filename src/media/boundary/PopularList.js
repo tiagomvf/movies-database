@@ -1,8 +1,5 @@
-// import {html, render} from "../../libs/lit-html.js"
 import { render, html} from "lit-html";
-// import "./MediaCard.js"
 import {template as listTemplate} from "./MediaCardListTemplate.js"
-import API_KEY from "../../key.js"
 
 const urls = {
     tv: '/api/3/tv/popular',
@@ -41,7 +38,7 @@ class PopularList extends HTMLElement {
     view(){
         const type = this.getAttribute("data-media-type");
 
-        fetch(`${urls[type]}\?api_key\=${API_KEY}`)
+        fetch(`${urls[type]}`)
             .then(response => response.json())
             .then(json => render(template(type, json.results, this), this));
     }

@@ -1,8 +1,5 @@
-// import { html,render } from "../../libs/lit-html.js"
 import { render, html} from "lit-html";
-// import "./MediaCard.js"
 import {template as listTemplate} from "./MediaCardListTemplate.js"
-import API_KEY from "../../key.js"
 
 const template = (list) => html`
     <div style="display: flex; flex-direction: row;align-items: center; gap: 16px; padding: 20px">
@@ -37,7 +34,7 @@ class TrendingList extends HTMLElement {
 
     view(){
         const range = this.getAttribute("data-range");
-        fetch(`/api/3/trending/all/${range}\?api_key\=${API_KEY}`)
+        fetch(`/api/3/trending/all/${range}`)
             .then(response => response.json())
             .then(json => render(template(json.results), this))
     }

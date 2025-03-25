@@ -6,15 +6,20 @@
 //    }
 //  };
 
+const { default: API_KEY } = require("../../src/key");
+
 // fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
 //   .then(response => response.json())
 //   .then(response => console.log(response))
 //   .catch(err => console.error(err));
 
+//?api_key\=${API_KEY}
 
 exports.handler = async (request) => {
   // TODO: User header to authenticate, not apiKey path param
-  const newUrl = request.rawUrl.replace(/https?:[\/]{2}.*[\/]api/, 'https://api.themoviedb.org');
+
+  const newUrl = new URL(request.rawUrl.replace(/https?:[\/]{2}.*[\/]api/, 'https://api.themoviedb.org'));
+  newUrl.searchParams.append('api_key', API_KEY)
   const response = await fetch(newUrl);
   const statusCode = response.status;
   const body = await response.text();
