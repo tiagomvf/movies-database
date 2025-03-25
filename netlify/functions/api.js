@@ -6,8 +6,6 @@
 //    }
 //  };
 
-const { default: API_KEY } = require("../../src/key");
-
 // fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
 //   .then(response => response.json())
 //   .then(response => console.log(response))
@@ -15,6 +13,7 @@ const { default: API_KEY } = require("../../src/key");
 
 //?api_key\=${API_KEY}
 
+const API_KEY="a0ff4c0215cc293844471e4c38da0a84";
 exports.handler = async (request) => {
   // TODO: User header to authenticate, not apiKey path param
 
