@@ -1,5 +1,6 @@
 import { render, html} from "lit-html";
 import {template as listTemplate} from "./MediaCardListTemplate.js"
+import { trendings } from "../control/MoviesStore.js";
 
 const template = (list) => html`
     <div style="display: flex; flex-direction: row;align-items: center; gap: 16px; padding: 20px">
@@ -34,9 +35,8 @@ class TrendingList extends HTMLElement {
 
     view(){
         const range = this.getAttribute("data-range");
-        fetch(`/api/3/trending/all/${range}`)
-            .then(response => response.json())
-            .then(json => render(template(json.results), this))
+        trendings(range)
+            .then(json => render(template(json), this));
     }
 
     static get observedAttributes(){return ["data-range"]}

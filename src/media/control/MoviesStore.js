@@ -1,8 +1,3 @@
-const popular_urls = {
-  tv: '/api/3/tv/popular',
-  movie: '/api/3/movie/popular',
-  in_theaters: '/api/3/movie/now_playing'
-};
 
 /**
  * @function
@@ -10,9 +5,24 @@ const popular_urls = {
  * @returns {Promise<any>}
  */
 function popular(type) {
+  const popular_urls = {
+    tv: '/api/3/tv/popular',
+    movie: '/api/3/movie/popular',
+    in_theaters: '/api/3/movie/now_playing'
+  };
   return fetch(popular_urls[type])
     .then(r => r.json())
     .then(json => json.results);
 }
 
-export {popular};
+/**
+ * @function
+ * @param {'day'|'week'} type
+ * @returns {Promise<any>}
+ */
+function trendings(range) {
+  return fetch(`/api/3/trending/all/${range}`)
+    .then(response => response.json())
+    .then(json => json.results);
+}
+export {popular, trendings};
