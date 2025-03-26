@@ -25,4 +25,15 @@ function trendings(range) {
     .then(response => response.json())
     .then(json => json.results);
 }
-export {popular, trendings};
+/**
+ * @function
+ * @param {'day'|'week'} type
+ * @returns {Promise<any>}
+ */
+function freeToWatch(type) {
+  const url = `/api/3/discover/${type}\?with_watch_monetization_types\=free&sort_by\=popularity.desc\&watch_region\=US\&certification_country=\US`
+  return fetch(url)
+    .then(response => response.json())
+    .then(json => json.results);
+}
+export {popular, trendings, freeToWatch};
