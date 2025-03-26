@@ -35,7 +35,7 @@ class PopularList extends HTMLElement {
         this.view();
     }
 
-    attributeChangedCallback(name, oldValue, newValue){
+    attributeChangedCallback(/*name, oldValue, newValue*/){
          this.view();
     }
 
