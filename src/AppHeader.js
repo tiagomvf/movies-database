@@ -23,10 +23,7 @@ const template = `
 `;
 
 class AppHeader extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = template;
-  }
-
+  connectedCallback() { this.innerHTML = template; }
 }
 
 customElements.define('tmdb-app-header', AppHeader);
