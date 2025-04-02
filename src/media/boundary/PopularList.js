@@ -23,6 +23,7 @@ class PopularList extends HTMLElement {
 
   constructor() {
     super();
+    this.attachShadow({ mode: "open" });
     if (!this.getAttribute("data-media-type")) {
       this.setAttribute("data-media-type", "movie");
     }
@@ -39,7 +40,7 @@ class PopularList extends HTMLElement {
     const type = this.getAttribute("data-media-type");
     fetch(`${urls[type]}`)
       .then(response => response.json())
-      .then(json => render(template(type, json.results), this));
+      .then(json => render(template(type, json.results), this.shadowRoot));
   }
 
   static get observedAttributes() { return ["data-media-type"] }

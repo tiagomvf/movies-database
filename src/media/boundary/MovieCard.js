@@ -26,15 +26,18 @@ cds-link h2 {
 
 class MovieListItem extends HTMLElement {
 
-  constructor() { super(); }
-  connectedCallback() {
-    this.view();
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
     const observer = new MutationObserver(() => {
       observer.takeRecords();
       this.view();
     });
     observer.observe(this,
       { attributes: true, childList: false, subtree: false })
+    this.view();
+  }
+  connectedCallback() {
   }
 
   disconnectedCallback() { observer.disconnect(); }
@@ -48,7 +51,7 @@ class MovieListItem extends HTMLElement {
       release_date: this.dataset.release_date,
       image_host: 'https://image.tmdb.org'
     };
-    render(template(data), this);
+    render(template(data), this.shadowRoot);
   }
 
   static get observedAttributes() { return ["data-movie"] }
