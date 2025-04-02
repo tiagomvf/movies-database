@@ -1,11 +1,11 @@
-import {html, render} from "lit-html";
+import { html, render } from "lit-html";
 
-import {template as listTemplate} from "./MediaCardListTemplate.js"
+import { template as listTemplate } from "./MediaCardListTemplate.js"
 
 const urls = {
-  tv : '/api/3/tv/popular',
-  movie : '/api/3/movie/popular',
-  in_theaters : '/api/3/movie/now_playing'
+  tv: '/api/3/tv/popular',
+  movie: '/api/3/movie/popular',
+  in_theaters: '/api/3/movie/now_playing'
 };
 
 const template = (type, list) => html`
@@ -27,8 +27,8 @@ class PopularList extends HTMLElement {
       this.setAttribute("data-media-type", "movie");
     }
     this.addEventListener(
-        "cds-content-switcher-selected",
-        e => this.setAttribute("data-media-type", e.detail.item.value));
+      "cds-content-switcher-selected",
+      e => this.setAttribute("data-media-type", e.detail.item.value));
   }
 
   connectedCallback() { this.view(); }
@@ -38,11 +38,11 @@ class PopularList extends HTMLElement {
   view() {
     const type = this.getAttribute("data-media-type");
     fetch(`${urls[type]}`)
-        .then(response => response.json())
-        .then(json => render(template(type, json.results), this));
+      .then(response => response.json())
+      .then(json => render(template(type, json.results), this));
   }
 
-  static get observedAttributes() { return [ "data-media-type" ] }
+  static get observedAttributes() { return ["data-media-type"] }
 }
 
 customElements.define("tmdb-popular-list", PopularList);

@@ -18,17 +18,17 @@ class TrendingList extends HTMLElement {
 
   constructor() {
     super();
-    if (!this.getAttribute("data-range")) {
-      this.setAttribute("data-range", "day");
-    }
-  }
-
-  connectedCallback() {
-    this.view();
     this.addEventListener(
       'cds-content-switcher-selected',
       (e) => { this.setAttribute('data-range', e.detail.item.value); }
     );
+  }
+
+  connectedCallback() {
+    if (!this.getAttribute("data-range")) {
+      this.setAttribute("data-range", "day");
+    }
+    this.view();
   }
 
   attributeChangedCallback(name, oldValue, newValue) { this.view(); }
