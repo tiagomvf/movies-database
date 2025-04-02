@@ -1,6 +1,14 @@
 import { html, render } from "lit-html";
 
 const template = ({ id, title, image_host, poster_path, release_date }) => html`
+<style>
+cds-link h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+</style>
      <cds-layer style="width: fit-content; height: fit-content; padding: 0">
      <div style="width: 150px; min-width: 150px; max-width: 322px">
        <a href="/movie/${id}" title="${title}" > 
