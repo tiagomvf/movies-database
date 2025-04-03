@@ -1,6 +1,6 @@
 import "./MovieCard.js"
 
-import { html } from "lit-html";
+import { html, render } from "lit-html";
 
 const calcDate =
   ({ release_date, first_air_date }) => {
@@ -10,8 +10,7 @@ const calcDate =
       .format(date);
   }
 
-export const template = (media_type, list) => html`
-
+const template = (list) => html`
 <div style="display: flex; gap: 1em; overflow-y: auto; scrollbar-width: thin;">
     ${list.map(({ title, name, release_date, first_air_date, ...rest }) => ({
   title: title ? title : name,
@@ -29,3 +28,25 @@ export const template = (media_type, list) => html`
     `)}
 </div>
 `
+
+class MediaList extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this._list = [];
+    this.view();
+  }
+
+  set list(val) {
+    this._list = val;
+    this.view();
+  }
+
+  get list() { return this._list; }
+  view() {
+    render(template(this.list), this.shadowRoot);
+  }
+
+}
+
+customElements.define("tmdb-media-list", MediaList);

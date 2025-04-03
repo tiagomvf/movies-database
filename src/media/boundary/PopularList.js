@@ -1,7 +1,5 @@
 import { html, render } from "lit-html";
 
-import { template as listTemplate } from "./MediaCardListTemplate.js"
-
 const urls = {
   tv: '/api/3/tv/popular',
   movie: '/api/3/movie/popular',
@@ -18,7 +16,8 @@ const template = (type, list) => html`
             <cds-content-switcher-item value="in_theaters">Nos Cinemas</cds-content-switcher-item>
         </cds-content-switcher>
     </div>
-    ${listTemplate(type, list)}`
+    <tmdb-media-list .list=${list}></tmdb-media-list>
+    `
 class PopularList extends HTMLElement {
 
   constructor() {

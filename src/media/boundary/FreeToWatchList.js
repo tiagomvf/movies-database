@@ -1,6 +1,5 @@
 import { html, render } from "lit-html";
 
-import { template as listTemplate } from "./MediaCardListTemplate.js"
 import { freeToWatch } from "../control/MoviesStore.js";
 
 const template = (type, list) => html`
@@ -12,7 +11,8 @@ const template = (type, list) => html`
             <cds-content-switcher-item value="tv">TV</cds-content-switcher-item>
         </cds-content-switcher>
     </div>
-    ${listTemplate(type, list)}`
+    <tmdb-media-list .list=${list}></tmdb-media-list>
+    `
 class FreeToWatchList extends HTMLElement {
 
   constructor() {
