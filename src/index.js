@@ -1,7 +1,4 @@
 import '@carbon/web-components/es';
 import './AppHeader.js'
-import './media/boundary/TrendingList.js'
-import './media/boundary/PopularList.js'
-import './media/boundary/FreeToWatchList.js'
-import './media/boundary/MainPage.js'
-import './media/boundary/MediaList.js'
+import './main-page/boundary/TrendingList.js'
+import './main-page/index.js'
