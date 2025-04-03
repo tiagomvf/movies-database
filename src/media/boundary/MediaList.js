@@ -11,8 +11,15 @@ const calcDate =
   }
 
 const template = (list) => html`
-<div style="display: flex; gap: 1em; overflow-y: auto; scrollbar-width: thin;">
-    ${list.map(({ title, name, release_date, first_air_date, ...rest }) => ({
+<style>
+:host {
+  display: flex;
+  gap: 1em;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+</style>
+${list.map(({ title, name, release_date, first_air_date, ...rest }) => ({
   title: title ? title : name,
   release_date: calcDate({ release_date, first_air_date }),
   ...rest
@@ -26,7 +33,6 @@ const template = (list) => html`
           data-release_date=${release_date}
         ></tmdb-movie-list-item>
     `)}
-</div>
 `
 
 class MediaList extends HTMLElement {
