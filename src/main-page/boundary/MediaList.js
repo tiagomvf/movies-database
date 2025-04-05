@@ -13,10 +13,18 @@ const calcDate =
 const template = (list) => html`
 <style>
 :host {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-column: 50%;
   gap: 1em;
-  overflow-y: auto;
+  overflow-x: auto;
   scrollbar-width: thin;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+}
+
+:host > * {
+  scroll-snap-align: start;
 }
 </style>
 ${list.map(({ title, name, release_date, first_air_date, ...rest }) => ({
