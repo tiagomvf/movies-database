@@ -7,23 +7,14 @@ img {
   border-radius: 8px;
 }
 
-a {
-  text-decoration: none;
-}
-
-cds-link * {
-  text-color: green;
-}
 </style>
-<cds-link href="/movie/${id}" title="${title}">
-  <div>
+<cds-link inline="false" size="lg" href="/movie/${id}" title="${title}">
    <img loading="lazy" class="poster"
      src="${image_host}/t/p/w220_and_h330_face${poster_path}"
      srcset="${image_host}/t/p/w220_and_h330_face${poster_path} 1x, ${image_host}/t/p/w440_and_h660_face${poster_path} 2x" alt="">
     <div>${title}</div>
-    <div>${release_date}</div>
-  </div>
 </cds-link>
+<div>${release_date}</div>
 `
 
 class MovieListItem extends HTMLElement {
