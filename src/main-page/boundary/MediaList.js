@@ -15,7 +15,8 @@ const template = (list) => html`
 :host {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-column: 50%;
+  grid-auto-columns: minmax(10%, 1fr);
+  grid-template-rows: auto 1fr;
   gap: 1em;
   overflow-x: auto;
   scrollbar-width: thin;
@@ -23,6 +24,11 @@ const template = (list) => html`
   scroll-snap-type: inline mandatory;
 }
 
+tmdb-movie-list-item {
+  max-width: 100%;
+  display: grid;
+  grid-template-rows: subgrid;
+}
 :host > * {
   scroll-snap-align: start;
 }

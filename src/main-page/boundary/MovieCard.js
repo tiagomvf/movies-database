@@ -3,13 +3,26 @@ import { html, render } from "lit-html";
 const template = ({ id, title, image_host, poster_path, release_date }) => html`
 <style>
 
+:host{
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
 img {
   border-radius: 8px;
+  max-width: 100%;
+}
+
+cds-link {
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 </style>
 <cds-link inline="false" size="lg" href="/movie/${id}" title="${title}">
-   <img loading="lazy" class="poster"
+   <img loading="lazy"
      src="${image_host}/t/p/w220_and_h330_face${poster_path}"
      srcset="${image_host}/t/p/w220_and_h330_face${poster_path} 1x, ${image_host}/t/p/w440_and_h660_face${poster_path} 2x" alt="">
     <div>${title}</div>
