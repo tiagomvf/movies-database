@@ -19,7 +19,13 @@ cds-link {
   grid-row-start: 1;
   grid-row-end: 2;
 }
-
+cds-link > div {
+  min-height: 2em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
 </style>
 <cds-link inline="false" size="lg" href="/movie/${id}" title="${title}">
    <img loading="lazy"

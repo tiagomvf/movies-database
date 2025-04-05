@@ -17,7 +17,7 @@ const template = (list) => html`
   grid-auto-flow: column;
   grid-auto-columns: minmax(10%, 1fr);
   grid-template-rows: auto 1fr;
-  gap: 1em;
+  column-gap: 1em;
   overflow-x: auto;
   scrollbar-width: thin;
   overscroll-behavior-inline: contain;
