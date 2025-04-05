@@ -22,12 +22,11 @@ const template = (list) => html`
   scrollbar-width: thin;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
+  padding: var(--cds-spacing-02) 0;
 }
 
 tmdb-movie-list-item {
   max-width: 100%;
-  display: grid;
-  grid-template-rows: subgrid;
 }
 :host > * {
   scroll-snap-align: start;
