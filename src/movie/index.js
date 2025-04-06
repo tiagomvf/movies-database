@@ -1,0 +1,1 @@
+import './boundary/MovieDeails.js';
