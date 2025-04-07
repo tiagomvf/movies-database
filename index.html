@@ -12,10 +12,13 @@
 <header>
     <tmdb-app-header></tmdb-app-header>
 </header>
-<main style="width: 100%; display: flex; justify-content: center">
-    <div style="margin-top: 62px; max-width: 1300px">
-        <tmdb-main-page></tmdb-main-page>
-    </div>
+<style>
+body > main {
+    padding-top: 50px;
+}
+</style>
+<main>
+        <tmdb-main-page class="cds--css-grid"></tmdb-main-page>
 </main>
 </body>
 </html>

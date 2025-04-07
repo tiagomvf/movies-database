@@ -5,6 +5,11 @@ class MainPage extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this.shadowRoot.innerHTML = `
+        <style>
+        :host {
+          grid-column: 1 / -1;
+        }
+        </style>
         <tmdb-trending-list></tmdb-trending-list>
         <tmdb-popular-list></tmdb-popular-list>
         <tmdb-free-to-watch-list></tmdb-free-to-watch-list>
