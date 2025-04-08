@@ -71,3 +71,4 @@ export class MovieListSection extends HTMLElement {
   static get observedAttributes() { return ["data-range"] }
 }
 
+customElements.define('tmdb-movie-list-section', MovieListSection);
