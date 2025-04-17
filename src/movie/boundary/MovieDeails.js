@@ -28,6 +28,16 @@ const template = (movie) => html`
 #poster img {
   border-radius: 1em;
 }
+
+.facts {
+  display: flex;
+  flex-direction: row;
+}
+
+.facts > div:not(:first-child)::before {
+  content: '•';
+  padding: 0 .25em;
+}
 </style>
 
 <div>
@@ -38,6 +48,13 @@ const template = (movie) => html`
 </div>
 <div>
   <h2>${movie.title} (${yearof(movie.release_date)})</h2>
+  <div class="facts">
+    <!-- TODO: get release date by country -->
+    <div>${movie.release_date}</div>
+    <div>${movie.genres.map(x => x.name).join(', ')}</div>
+    <!-- TODO: use Intl to format duration -->
+    <div>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m </div>
+  </div >
   <div class="tagline">
     ${movie.tagline}
   </div>
