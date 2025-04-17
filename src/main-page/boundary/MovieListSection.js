@@ -1,6 +1,6 @@
 import { html, render } from "lit-html";
 
-const template = ({ title, options, list }) => html`
+const template = ({ title, options, selected, list }) => html`
 <style>
 :host {
   grid-column: 1 / -1;
@@ -32,9 +32,11 @@ const template = ({ title, options, list }) => html`
 }
 </style>
   <h1 class="first-row header cds--type-productive-heading-04">${title}</h1>
-  <cds-content-switcher class="first-row switcher">
+  <cds-content-switcher class="first-row switcher" value=${selected}>
     ${[...options.entries()].map((entry) => html`
-      <cds-content-switcher-item value=${entry[0]}>${entry[1]}</cds-content-switcher-item>
+      <cds-content-switcher-item value=${entry[0]}>
+        ${entry[1]}
+      </cds-content-switcher-item>
     `
 )}
   </cds-content-switcher>
@@ -44,10 +46,13 @@ export class MovieListSection extends HTMLElement {
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this._shadowRoot = this.attachShadow({ mode: "open" });
     this.addEventListener(
       'cds-content-switcher-selected',
-      (e) => { this.setAttribute('data-range', e.detail.item.value); }
+      (e) => {
+        this._selected = e.detail.item.value;
+        this.view();
+      }
     );
   }
 
@@ -55,20 +60,13 @@ export class MovieListSection extends HTMLElement {
     this.view();
   }
 
-  attributeChangedCallback(name, oldValue, newValue) { this.view(); }
-
   view() {
-    if (!this.getAttribute('data-range')) {
-      this.setAttribute('data-range', [...this.options.keys()][0]);
-      // this.shadowRoot.querySelector('.switcher').setAttribute("value", [...this.options.keys()][0])
-    }
-    const range = this.getAttribute("data-range");
-    this.filter(range).then(json => {
-      render(template({ title: this.title, options: this.options, list: json }), this.shadowRoot);
+    const selected = this._selected || [...this.options.keys()][0];
+    this.filter(selected).then(json => {
+      render(template({ title: this.title, options: this.options, selected, list: json }), this.shadowRoot);
     });
   }
 
-  static get observedAttributes() { return ["data-range"] }
 }
 
 customElements.define('tmdb-movie-list-section', MovieListSection);
