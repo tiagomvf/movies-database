@@ -9,12 +9,18 @@ function yearof(dateStr) {
   const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
   return year;
 }
+
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  const formated = new Intl.DateTimeFormat(navigator.languages || ['en-US'], { dateStyle: "medium" }).format(date);
+  return formated;
+}
 /**
  * @function
  * @param {Movie} movie
  * @returns {any}
  */
-const template = (movie) => html`
+const template = (movie, crew) => html`
 <style>
 :host {
   display: grid;
@@ -38,6 +44,10 @@ const template = (movie) => html`
   content: '•';
   padding: 0 .25em;
 }
+
+.overview {
+  max-width: 72ch;
+}
 </style>
 
 <div>
@@ -47,22 +57,27 @@ const template = (movie) => html`
   </div>
 </div>
 <div>
+  <!-- TODO: Add age indication -->
   <h2>${movie.title} (${yearof(movie.release_date)})</h2>
   <div class="facts">
     <!-- TODO: get release date by country -->
-    <div>${movie.release_date}</div>
+    <!-- TODO: what format will be used? -->
+    <div>${formatDate(movie.release_date)}</div>
     <div>${movie.genres.map(x => x.name).join(', ')}</div>
-    <!-- TODO: use Intl to format duration -->
-    <div>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m </div>
+    <!-- TODO: use Intl to format duration-->
+  <div>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m </div>
   </div >
   <div class="tagline">
     ${movie.tagline}
   </div>
-  <div id="overview">
+  <div class="overview">
     <h3>Overview</h3>
     <p>${movie.overview}</p>
   </div>
-</div>
+  <div>
+    ${crew.map(x => html`<div>${x.name}</div><div>${x.job}</div>`)}
+  </div>
+</div >
   `
 
 class MovieDetails extends HTMLElement {
@@ -74,18 +89,25 @@ class MovieDetails extends HTMLElement {
 
   connectedCallback() { }
 
-  disconnectedCallback() { observer.disconnect(); }
+  disconnectedCallback() { }
 
-  view(movie) {
-    render(template(movie), this.shadowRoot);
-    this.shadowRoot.appendChild(style);
+  view(movie, crew) {
+    render(template(movie, crew), this.shadowRoot);
+    // this.shadowRoot.appendChild(style);
   }
 
   async attributeChangedCallback() {
     const id = this.getAttribute("id");
-    const movie = await fetch(`/api/3/movie/${id}`).then(r => r.json());
-    console.log("chamou");
-    this.view(movie);
+
+    const promises = await Promise.all([
+      fetch(`/api/3/movie/${id}`).then(r => r.json()),
+      fetch(`/api/3/movie/${id}/credits`).then(r => r.json())
+    ]
+    );
+    const movie = promises[0];
+    // TODO: Discover and implement rules to select crew to be shown
+    const crew = promises[1].crew.filter(x => ['Novel', 'Director'].includes(x.job));
+    this.view(movie, crew);
   }
 
   static get observedAttributes() { return ["id"] }
