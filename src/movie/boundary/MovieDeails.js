@@ -55,6 +55,7 @@ const template = (movie, crew) => html`
     <img src=https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}>
     ${movie ? movie.id : nothing}
   </div>
+  <!-- TODO: List providers -->
 </div>
 <div>
   <!-- TODO: Add age indication -->
@@ -65,8 +66,11 @@ const template = (movie, crew) => html`
     <div>${formatDate(movie.release_date)}</div>
     <div>${movie.genres.map(x => x.name).join(', ')}</div>
     <!-- TODO: use Intl to format duration-->
-  <div>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m </div>
-  </div >
+    <div>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m </div>
+  </div>
+  <div class="user-score">
+    ${movie.vote_average} <!-- TODO: create component -->
+  </div>
   <div class="tagline">
     ${movie.tagline}
   </div>
