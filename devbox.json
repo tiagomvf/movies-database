@@ -1,7 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
   "packages": [
-    "nodejs@22.4.1"
+    "nodejs@22.4.1",
+    "netlify-cli@latest",
+    "vite@latest"
   ],
   "shell": {
     "init_hook": [
