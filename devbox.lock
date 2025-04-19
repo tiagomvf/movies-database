@@ -1,6 +1,54 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "netlify-cli@latest": {
+      "last_modified": "2025-04-02T13:00:31Z",
+      "resolved": "github:NixOS/nixpkgs/384d1adab77a8d49172a3acc1d5c2f26d013a69a#netlify-cli",
+      "source": "devbox-search",
+      "version": "19.0.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/hwbi16pcj4pw3bslcla5416l427mbiqm-netlify-cli-19.0.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/hwbi16pcj4pw3bslcla5416l427mbiqm-netlify-cli-19.0.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mdi1mc2y1d17w434pi1vzmr5gaqnra3h-netlify-cli-19.0.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/mdi1mc2y1d17w434pi1vzmr5gaqnra3h-netlify-cli-19.0.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xiapw5b6lzxx75vlb2rkayzxgw0xp953-netlify-cli-19.0.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/xiapw5b6lzxx75vlb2rkayzxgw0xp953-netlify-cli-19.0.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/dzm6yf0dravc17qzfr11rw0hbgxkk4sb-netlify-cli-19.0.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/dzm6yf0dravc17qzfr11rw0hbgxkk4sb-netlify-cli-19.0.2"
+        }
+      }
+    },
     "nodejs@22.4.1": {
       "last_modified": "2024-07-31T08:48:38Z",
       "plugin_version": "0.0.2",
@@ -63,6 +111,34 @@
             }
           ],
           "store_path": "/nix/store/w8rva81863ls2ic3qc72mdzpzm0skyrm-nodejs-22.4.1"
+        }
+      }
+    },
+    "vite@latest": {
+      "last_modified": "2025-03-11T17:52:14Z",
+      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#vite",
+      "source": "devbox-search",
+      "version": "2022-05-17",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/8d03af1dxjxjhpqii5jv2s9a59yr8897-vite-unstable-2022-05-17",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/8d03af1dxjxjhpqii5jv2s9a59yr8897-vite-unstable-2022-05-17"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/myzwf8vkn3b82q7aqyak2k60jjcv6qyl-vite-unstable-2022-05-17",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/myzwf8vkn3b82q7aqyak2k60jjcv6qyl-vite-unstable-2022-05-17"
         }
       }
     }
