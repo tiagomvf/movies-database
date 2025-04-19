@@ -31,6 +31,14 @@ const template = (movie, crew) => html`
 :host > #poster {
 }
 
+:host > #details {
+  padding: 2em 0;
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+  max-width: 72ch;
+}
+
 #poster img {
   border-radius: 1em;
 }
@@ -45,19 +53,31 @@ const template = (movie, crew) => html`
   padding: 0 .25em;
 }
 
-.overview {
-  max-width: 72ch;
+.overview {}
+
+.tagline {
+  opacity: 70%;
+  font-style: italic;
+}
+.crew {
+  display: grid;
+  grid-auto-flow: column;
+  width: 100%;
+}
+
+.crew > div { }
+
+.crew .name {
+  font-weight: 600;
 }
 </style>
 
-<div>
-  <div id="poster">
-    <img src=https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}>
-    ${movie ? movie.id : nothing}
-  </div>
-  <!-- TODO: List providers -->
+<div id="poster">
+  <img src=https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}>
+  ${movie ? movie.id : nothing}
 </div>
-<div>
+  <!-- TODO: List providers -->
+<div id="details">
   <!-- TODO: Add age indication -->
   <h2>${movie.title} (${yearof(movie.release_date)})</h2>
   <div class="facts">
@@ -78,8 +98,13 @@ const template = (movie, crew) => html`
     <h3>Overview</h3>
     <p>${movie.overview}</p>
   </div>
-  <div>
-    ${crew.map(x => html`<div>${x.name}</div><div>${x.job}</div>`)}
+  <div class='crew'>
+    ${crew.map(x => html`
+      <div>
+      <div class='name'>${x.name}</div>
+      <div class='cds--type-expressive-heading-04 job'>${x.job}</div>
+      </div>
+    `)}
   </div>
 </div >
   `
