@@ -29,18 +29,20 @@ const template = (movie, crew) => html`
 }
 
 :host > #poster {
+  width: 300px;
+  min-width: 300px;
 }
 
+:host > #poster > img {
+  width: 100%;
+  border-radius: 1em;
+}
 :host > #details {
   padding: 2em 0;
   gap: 1em;
   display: flex;
   flex-direction: column;
   max-width: 72ch;
-}
-
-#poster img {
-  border-radius: 1em;
 }
 
 .facts {
@@ -74,7 +76,6 @@ const template = (movie, crew) => html`
 
 <div id="poster">
   <img src=https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}>
-  ${movie ? movie.id : nothing}
 </div>
   <!-- TODO: List providers -->
 <div id="details">
