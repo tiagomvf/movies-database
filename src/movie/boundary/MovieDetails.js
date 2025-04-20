@@ -24,13 +24,12 @@ const template = (movie, crew) => html`
 <style>
 :host {
   display: grid;
-  gap: 2em;
-  grid-template-columns: min-content auto;
+  gap: 1em;
+  grid-template: subgrid;
 }
 
 :host > #poster {
-  width: 300px;
-  min-width: 300px;
+  grid-column: 2/6;
 }
 
 :host > #poster > img {
@@ -42,7 +41,7 @@ const template = (movie, crew) => html`
   gap: 1em;
   display: flex;
   flex-direction: column;
-  max-width: 72ch;
+  grid-column: 6/-2;
 }
 
 .facts {
