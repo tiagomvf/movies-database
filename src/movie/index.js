@@ -1,1 +1,1 @@
-import './boundary/MovieDeails.js';
+import './boundary/MovieDetails.js';
