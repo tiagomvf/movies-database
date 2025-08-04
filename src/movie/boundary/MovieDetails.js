@@ -20,7 +20,7 @@ function formatDate(dateStr) {
  * @param {Movie} movie
  * @returns {any}
  */
-const template = (movie, crew) => html`
+const template = (movie, crew, release_date, country) => html`
 <style>
 :host {
   display: grid;
@@ -79,11 +79,11 @@ const template = (movie, crew) => html`
   <!-- TODO: List providers -->
 <div id="details">
   <!-- TODO: Add age indication -->
-  <h2>${movie.title} (${yearof(movie.release_date)})</h2>
+  <h2>${movie.title} (${yearof(release_date)})</h2>
   <div class="facts">
     <!-- TODO: get release date by country -->
     <!-- TODO: what format will be used? -->
-    <div>${formatDate(movie.release_date)}</div>
+    <div>${formatDate(release_date)} (${country})</div>
     <div>${movie.genres.map(x => x.name).join(', ')}</div>
     <!-- TODO: use Intl to format duration-->
     <div>${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m </div>
@@ -120,8 +120,8 @@ class MovieDetails extends HTMLElement {
 
   disconnectedCallback() { }
 
-  view(movie, crew) {
-    render(template(movie, crew), this.shadowRoot);
+  view(movie, crew, release_date, country) {
+    render(template(movie, crew, release_date, country), this.shadowRoot);
     // this.shadowRoot.appendChild(style);
   }
 
@@ -130,13 +130,22 @@ class MovieDetails extends HTMLElement {
 
     const promises = await Promise.all([
       fetch(`/api/3/movie/${id}`).then(r => r.json()),
-      fetch(`/api/3/movie/${id}/credits`).then(r => r.json())
+      fetch(`/api/3/movie/${id}/credits`).then(r => r.json()),
+      fetch(`/api/country`).then(r => r.text()),
+      fetch(`/api/3/movie/${id}/release_dates`).then(r => r.json()),
     ]
     );
     const movie = promises[0];
     // TODO: Discover and implement rules to select crew to be shown
     const crew = promises[1].crew.filter(x => ['Novel', 'Director'].includes(x.job));
-    this.view(movie, crew);
+    const country = promises[2];
+    const release_date = promises[3]
+    .results.filter(x => x.iso_3166_1 == country)[0]
+    .release_dates.filter(x => x.type == 3)[0].release_date;
+    
+    console.log(JSON.stringify(release_date));
+    // todo: add classification - faixa indicativa
+    this.view(movie, crew, release_date, country);
   }
 
   static get observedAttributes() { return ["id"] }

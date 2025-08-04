@@ -26,6 +26,11 @@
 
 [[redirects]]
   force = true
+  from = "/api/country"
+  status = 200
+  to = "/.netlify/functions/getCountry/:splat"
+[[redirects]]
+  force = true
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
