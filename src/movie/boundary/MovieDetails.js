@@ -71,7 +71,16 @@ const template = (movie, crew, release_date, country) => html`
 .crew .name {
   font-weight: 600;
 }
+
+.back-button {
+  margin-bottom: 1em;
+  cursor: pointer;
+}
 </style>
+
+<div class="back-button">
+  <cds-link inline="true" size="lg">← Back to Movies</cds-link>
+</div>
 
 <div id="poster">
   <img src=https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}>
@@ -122,6 +131,12 @@ class MovieDetails extends HTMLElement {
 
   view(movie, crew, release_date, country) {
     render(template(movie, crew, release_date, country), this.shadowRoot);
+    
+    // Add event listener to the back button after rendering
+    const backButton = this.shadowRoot.querySelector('.back-button');
+    if (backButton) {
+      backButton.addEventListener('click', () => this.goBack());
+    }
     // this.shadowRoot.appendChild(style);
   }
 
@@ -146,6 +161,13 @@ class MovieDetails extends HTMLElement {
     console.log(JSON.stringify(release_date));
     // todo: add classification - faixa indicativa
     this.view(movie, crew, release_date, country);
+  }
+
+  goBack() {
+    const router = document.querySelector("tmdb-router");
+    if (router) {
+      router.goTo("/");
+    }
   }
 
   static get observedAttributes() { return ["id"] }

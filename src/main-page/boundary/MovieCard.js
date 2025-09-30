@@ -18,6 +18,7 @@ img {
 cds-link {
   grid-row-start: 1;
   grid-row-end: 2;
+  cursor: pointer;
 }
 cds-link > div {
   min-height: 2em;
@@ -27,7 +28,7 @@ cds-link > div {
   overflow: hidden;
 }
 </style>
-<cds-link inline="false" size="lg" href="/movie/${id}" title="${title}">
+<cds-link inline="false" size="lg" href="/movie/${id}" title="${title}" @click=${(e) => this.handleMovieClick(e, id)}>
    <img loading="lazy"
      src="${image_host}/t/p/w220_and_h330_face${poster_path}"
      srcset="${image_host}/t/p/w220_and_h330_face${poster_path} 1x, ${image_host}/t/p/w440_and_h660_face${poster_path} 2x" alt="">
@@ -53,6 +54,14 @@ class MovieListItem extends HTMLElement {
   }
 
   disconnectedCallback() { observer.disconnect(); }
+
+  handleMovieClick(e, movieId) {
+    e.preventDefault();
+    const router = document.querySelector("tmdb-router");
+    if (router) {
+      router.goTo(`/movie/${movieId}`);
+    }
+  }
 
   view() {
     const data = {
