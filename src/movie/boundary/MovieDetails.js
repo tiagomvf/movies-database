@@ -26,6 +26,7 @@ const template = (movie, crew, release_date, country) => html`
   display: grid;
   gap: 1em;
   grid-template: subgrid;
+  grid-column: 1/-1
 }
 
 :host > #poster {

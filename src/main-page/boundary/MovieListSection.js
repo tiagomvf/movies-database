@@ -3,7 +3,6 @@ import { html, render } from "lit-html";
 const template = ({ title, options, selected, list }) => html`
 <style>
 :host {
-  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
   grid-template-rows: auto auto;
@@ -13,33 +12,37 @@ const template = ({ title, options, selected, list }) => html`
   grid-row:  1 / 2;
   justify-self: start;
   align-self: center;
+  display: flex;
+  gap: calc(var(--cds-grid-gutter) / 2);
 }
 
 .second-row {
   grid-row: 2 / 3;
+  gap: calc(var(--cds-grid-gutter) / 2);
 }
 
 .header {
-  grid-column: 1 / 3;
 }
 
 .switcher {
-  grid-column: 3 / 5;
+  justify-self: start;
+  align-self: center;
 }
 
 .full-width {
-  grid-column: 1 / -1;
 }
 </style>
-  <h1 class="first-row header cds--type-productive-heading-04">${title}</h1>
-  <cds-content-switcher class="first-row switcher" value=${selected}>
-    ${[...options.entries()].map((entry) => html`
-      <cds-content-switcher-item value=${entry[0]}>
-        ${entry[1]}
-      </cds-content-switcher-item>
-    `
-)}
-  </cds-content-switcher>
+  <div class="first-row">
+    <h1 class="cds--type-productive-heading-04">${title}</h1>
+    <cds-content-switcher class="switcher" value=${selected}>
+      ${[...options.entries()].map((entry) => html`
+        <cds-content-switcher-item value=${entry[0]}>
+          ${entry[1]}
+        </cds-content-switcher-item>
+      `
+      )}
+    </cds-content-switcher>
+  </div>
   <tmdb-media-list class="second-row full-width" .list=${list}></tmdb-media-list>
   `
 export class MovieListSection extends HTMLElement {

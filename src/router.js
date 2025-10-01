@@ -3,7 +3,8 @@ import { html, render } from "lit-html";
 class Router extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    // this.root = this.attachShadow({ mode: "open" });
+    this.root = this;
     this.routes = new Map();
     this.currentRoute = "/";
   }
@@ -20,7 +21,7 @@ class Router extends HTMLElement {
     // Main page route
     this.routes.set("/", () => {
       import("./main-page/index.js").then(() => {
-        render(html`<tmdb-main-page class="cds--css-grid"></tmdb-main-page>`, this.shadowRoot);
+        render(html`<tmdb-main-page></tmdb-main-page>`, this.root);
       });
     });
 
@@ -28,9 +29,9 @@ class Router extends HTMLElement {
     this.routes.set("/movie/:id", (params) => {
       import("./movie/index.js").then(() => {
         const movieDetails = document.createElement("tmdb-movie-details");
-        movieDetails.className = "cds--css-grid";
+        // movieDetails.className = "cds--css-grid";
         movieDetails.setAttribute("id", params.id);
-        render(html`${movieDetails}`, this.shadowRoot);
+        render(html`${movieDetails}`, this.root);
       });
     });
   }
