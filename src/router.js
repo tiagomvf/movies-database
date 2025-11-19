@@ -26,7 +26,7 @@ class Router extends HTMLElement {
     });
 
     // Movie details route
-    this.routes.set("/movie/:id", (params) => {
+    this.routes.set("/movie/:id/", (params) => {
       import("./movie/index.js").then(() => {
         const movieDetails = document.createElement("tmdb-movie-details");
         // movieDetails.className = "cds--css-grid";
