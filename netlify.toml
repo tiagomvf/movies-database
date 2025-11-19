@@ -34,9 +34,3 @@
   status = 200
   to = "/.netlify/functions/api/:splat"
 
-# Redirecionamento para SPA - todas as rotas vão para index.html
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
