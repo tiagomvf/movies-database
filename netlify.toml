@@ -15,7 +15,7 @@
   # Default build command.
   command = "vite build"
 
-# [functions]
+[functions]
 #   external_node_modules = ["express"]
 #   node_bundler = "esbuild"
 [dev]
@@ -23,7 +23,6 @@
   targetPort = 5173
   port = 8888
   #publish = "dist" # If you use a _redirect file, provide the path to your static content folder
-
 [[redirects]]
   force = true
   from = "/api/country"
