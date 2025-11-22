@@ -2,54 +2,54 @@
   "lockfile_version": "1",
   "packages": {
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2025-09-05T01:14:44Z",
-      "resolved": "github:NixOS/nixpkgs/ca77296380960cd497a765102eeb1356eb80fed0?lastModified=1757034884&narHash=sha256-PgLSZDBEWUHpfTRfFyklmiiLBE1i1aGCtz4eRA3POao%3D"
+      "last_modified": "2025-11-20T06:07:48Z",
+      "resolved": "github:NixOS/nixpkgs/a8d610af3f1a5fb71e23e08434d8d61a466fc942?lastModified=1763618868&narHash=sha256-v5afmLjn%2FuyD9EQuPBn7nZuaZVV9r%2BJerayK%2F4wvdWA%3D"
     },
     "netlify-cli@latest": {
-      "last_modified": "2025-04-02T13:00:31Z",
-      "resolved": "github:NixOS/nixpkgs/384d1adab77a8d49172a3acc1d5c2f26d013a69a#netlify-cli",
+      "last_modified": "2025-11-15T07:28:48Z",
+      "resolved": "github:NixOS/nixpkgs/1d4c88323ac36805d09657d13a5273aea1b34f0c#netlify-cli",
       "source": "devbox-search",
-      "version": "19.0.2",
+      "version": "23.9.2",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/hwbi16pcj4pw3bslcla5416l427mbiqm-netlify-cli-19.0.2",
+              "path": "/nix/store/n5w59djn1ghzs4pqf08x4388g4xv876m-netlify-cli-23.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/hwbi16pcj4pw3bslcla5416l427mbiqm-netlify-cli-19.0.2"
+          "store_path": "/nix/store/n5w59djn1ghzs4pqf08x4388g4xv876m-netlify-cli-23.9.2"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/mdi1mc2y1d17w434pi1vzmr5gaqnra3h-netlify-cli-19.0.2",
+              "path": "/nix/store/67lsksygmsgkqzwmijwiyq41l6hjbmgd-netlify-cli-23.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/mdi1mc2y1d17w434pi1vzmr5gaqnra3h-netlify-cli-19.0.2"
+          "store_path": "/nix/store/67lsksygmsgkqzwmijwiyq41l6hjbmgd-netlify-cli-23.9.2"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/xiapw5b6lzxx75vlb2rkayzxgw0xp953-netlify-cli-19.0.2",
+              "path": "/nix/store/vj2l20hhjy99kdgk97mqkb3pxpmdkyhx-netlify-cli-23.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/xiapw5b6lzxx75vlb2rkayzxgw0xp953-netlify-cli-19.0.2"
+          "store_path": "/nix/store/vj2l20hhjy99kdgk97mqkb3pxpmdkyhx-netlify-cli-23.9.2"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/dzm6yf0dravc17qzfr11rw0hbgxkk4sb-netlify-cli-19.0.2",
+              "path": "/nix/store/vs4pps1zsmq9wqpryv4ixhcnjh9zsx37-netlify-cli-23.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/dzm6yf0dravc17qzfr11rw0hbgxkk4sb-netlify-cli-19.0.2"
+          "store_path": "/nix/store/vs4pps1zsmq9wqpryv4ixhcnjh9zsx37-netlify-cli-23.9.2"
         }
       }
     },
@@ -119,30 +119,30 @@
       }
     },
     "vite@latest": {
-      "last_modified": "2025-03-11T17:52:14Z",
-      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#vite",
+      "last_modified": "2025-11-15T07:28:48Z",
+      "resolved": "github:NixOS/nixpkgs/1d4c88323ac36805d09657d13a5273aea1b34f0c#vite",
       "source": "devbox-search",
-      "version": "2022-05-17",
+      "version": "1.4",
       "systems": {
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/8d03af1dxjxjhpqii5jv2s9a59yr8897-vite-unstable-2022-05-17",
+              "path": "/nix/store/swzx2li87241h26dignq48z1ypqcxirr-vite-1.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/8d03af1dxjxjhpqii5jv2s9a59yr8897-vite-unstable-2022-05-17"
+          "store_path": "/nix/store/swzx2li87241h26dignq48z1ypqcxirr-vite-1.4"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/myzwf8vkn3b82q7aqyak2k60jjcv6qyl-vite-unstable-2022-05-17",
+              "path": "/nix/store/1527mny19zjmcx96xkq51mz5cyd3970b-vite-1.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/myzwf8vkn3b82q7aqyak2k60jjcv6qyl-vite-unstable-2022-05-17"
+          "store_path": "/nix/store/1527mny19zjmcx96xkq51mz5cyd3970b-vite-1.4"
         }
       }
     }
