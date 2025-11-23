@@ -1,0 +1,16 @@
+# Netlify Redirects Configuration
+# Documentation: https://docs.netlify.com/routing/redirects/
+
+# SPA (Single Page Application) Fallback
+# All routes are directed to index.html to enable client-side routing
+# This prevents 404 errors when accessing deep links directly
+/* /index.html 200
+
+# Blog URL Redirects - Permanent redirects for moved content
+# These help maintain SEO when blog posts are relocated
+#/blog/old-post-1 /blog/new-post-1 301
+#/blog/old-post-2 /blog/new-post-2 301
+
+# HTTPS Enforcement (commented out as Netlify often handles this automatically)
+# Uncomment if you need explicit control over HTTPS redirection
+# http://example.com/* https://example.com/:splat 301!
