@@ -157,9 +157,8 @@ class MovieDetails extends HTMLElement {
     const country = promises[2];
     const release_date = promises[3]
     .results.filter(x => x.iso_3166_1 == country)[0]
-    .release_dates.filter(x => x.type == 3)[0].release_date;
+    .release_dates[0].release_date;
     
-    console.log(JSON.stringify(release_date));
     // todo: add classification - faixa indicativa
     this.view(movie, crew, release_date, country);
   }
