@@ -23,14 +23,11 @@ function formatDate(dateStr) {
 const template = (movie, crew, release_date, country) => html`
 <style>
 :host {
-  display: grid;
+  display: flex;
   gap: 1em;
-  grid-template: subgrid;
-  grid-column: 1/-1
 }
 
 :host > #poster {
-  grid-column: 2/6;
 }
 
 :host > #poster > img {
@@ -42,7 +39,6 @@ const template = (movie, crew, release_date, country) => html`
   gap: 1em;
   display: flex;
   flex-direction: column;
-  grid-column: 6/-2;
 }
 
 .facts {
@@ -83,10 +79,7 @@ const template = (movie, crew, release_date, country) => html`
   <cds-link inline="true" size="lg">← Back to Movies</cds-link>
 </div>
 
-<div id="poster">
-  <img src=https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}>
-</div>
-  <!-- TODO: List providers -->
+<!-- TODO: List providers -->
 <div id="details">
   <!-- TODO: Add age indication -->
   <h2>${movie.title} (${yearof(release_date)})</h2>
@@ -117,6 +110,9 @@ const template = (movie, crew, release_date, country) => html`
     `)}
   </div>
 </div >
+<div id="poster">
+  <img src=https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}>
+</div>
   `
 
 class MovieDetails extends HTMLElement {
