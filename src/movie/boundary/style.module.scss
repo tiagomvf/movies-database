@@ -1,6 +1,0 @@
-@use '@carbon/themes/scss/themes';
-@use '@carbon/themes/scss/theme';
-
-* {
-  @include theme.theme(themes.$g100);
-}

@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  gap: 1em;
+}
+
+:host > #poster {
+}
+
+:host > #poster > img {
+  width: 100%;
+  border-radius: 1em;
+}
+:host > #details {
+  padding: 2em 0;
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.facts {
+  display: flex;
+  flex-direction: row;
+}
+
+.facts > div:not(:first-child)::before {
+  content: '•';
+  padding: 0 .25em;
+}
+
+.overview {}
+
+.tagline {
+  opacity: 70%;
+  font-style: italic;
+}
+.crew {
+  display: grid;
+  grid-auto-flow: column;
+  width: 100%;
+}
+
+.crew > div { }
+
+.crew .name {
+  font-weight: 600;
+}
+
+.back-button {
+  margin-bottom: 1em;
+  cursor: pointer;
+}

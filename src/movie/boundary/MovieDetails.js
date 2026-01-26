@@ -1,4 +1,5 @@
-import { html, nothing, render } from "lit-html";
+import style from "./style.css?raw";
+import { html, render } from "lit-html";
 import "../entity/type.js"
 /**
  * @param {string} date
@@ -21,59 +22,7 @@ function formatDate(dateStr) {
  * @returns {any}
  */
 const template = (movie, crew, release_date, country) => html`
-<style>
-:host {
-  display: flex;
-  gap: 1em;
-}
-
-:host > #poster {
-}
-
-:host > #poster > img {
-  width: 100%;
-  border-radius: 1em;
-}
-:host > #details {
-  padding: 2em 0;
-  gap: 1em;
-  display: flex;
-  flex-direction: column;
-}
-
-.facts {
-  display: flex;
-  flex-direction: row;
-}
-
-.facts > div:not(:first-child)::before {
-  content: '•';
-  padding: 0 .25em;
-}
-
-.overview {}
-
-.tagline {
-  opacity: 70%;
-  font-style: italic;
-}
-.crew {
-  display: grid;
-  grid-auto-flow: column;
-  width: 100%;
-}
-
-.crew > div { }
-
-.crew .name {
-  font-weight: 600;
-}
-
-.back-button {
-  margin-bottom: 1em;
-  cursor: pointer;
-}
-</style>
+<style>${style}</style>
 
 <div class="back-button">
   <cds-link inline="true" size="lg">← Back to Movies</cds-link>
@@ -134,7 +83,6 @@ class MovieDetails extends HTMLElement {
     if (backButton) {
       backButton.addEventListener('click', () => this.goBack());
     }
-    // this.shadowRoot.appendChild(style);
   }
 
   async attributeChangedCallback() {
